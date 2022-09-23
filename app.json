@@ -1,0 +1,21 @@
+{
+  "name"              : "node-app",
+  "script"            : "app.js",
+  "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+  "merge_logs"        : false,
+  "watch"             : false,
+  "max_restarts"      : 10,
+  "env":
+  {
+    "NODE_ENV"        : "production",
+    "BOOTNODES"      : "52.194.200.217,52.78.22.32,18.136.251.28",
+    "BOOTNODE_PORT"  : "32323",
+    "RPC_PORT"        : "8651",
+    "SUB_RPC_PORT"    : "8551",
+    "LISTENING_PORT"  : "30303",
+    "INSTANCE_NAME"   : "klaytn-netstats",
+    "WS_SERVER"       : "http://localhost:3000",
+    "WS_SECRET"       : "klaytn-net-stats-has-a-secret",
+    "VERBOSITY"       : 2
+  }
+}
