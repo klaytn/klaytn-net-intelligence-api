@@ -1,0 +1,6 @@
+node_modules
+*.swp
+*.pem
+*~
+*/**/.DS_Store
+.DS_Store

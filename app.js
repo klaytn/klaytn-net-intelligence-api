@@ -64,8 +64,9 @@ function checkRPC(peer, cb) {
         'Content-Type': 'application/json'
     };
     let dataString = '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}';
+    const RPC_PORT = process.env.RPC_PORT || app_json.env.RPC_PORT;
     let options = {
-        url: 'http://' + peer.address + ':8551',
+        url: 'http://' + peer.address + ':' + RPC_PORT,
         method: 'POST',
         headers: headers,
         body: dataString,
@@ -75,21 +76,21 @@ function checkRPC(peer, cb) {
     request(options, (error, response, body) => {
         if (!error && response.statusCode == 200) {
             onRpc = true
-            cb(peer, '8551', onRpc) 
+            cb(peer, RPC_PORT, onRpc) 
         }
     });
     if(onRpc) {
         return
     }
-    
+    const SUB_RPC_PORT = process.env.SUB_RPC_PORT || app_json.env.SUB_RPC_PORT;
     function callback(error, response, body) {
         if (!error && response.statusCode == 200) {
-            cb(peer, '8545', true);
+            cb(peer, SUB_RPC_PORT, true);
         } else {
             cb(peer, '', false);
         }
     }
-    options.url ='http://' + peer.address + ':8545' 
+    options.url ='http://' + peer.address + ':' + SUB_RPC_PORT; 
     request(options, callback)
 
 }

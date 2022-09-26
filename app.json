@@ -13,7 +13,7 @@
     "RPC_PORT"        : "8651",
     "SUB_RPC_PORT"    : "8551",
     "LISTENING_PORT"  : "30303",
-    "INSTANCE_NAME"   : "klaytn-netstats",
+    "INSTANCE_NAME"   : "klaytn-net-intelligence-api",
     "WS_SERVER"       : "http://localhost:3000",
     "WS_SECRET"       : "klaytn-net-stats-has-a-secret",
     "VERBOSITY"       : 2
