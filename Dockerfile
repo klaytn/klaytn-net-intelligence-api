@@ -1,13 +1,10 @@
 FROM node:17
 
-ENV WS_SERVER=$WS_SERVER \
-    WS_SECRET=$WS_SECRET
-
 RUN apt-get update && apt-get install -y git node-typescript
 
 WORKDIR /klaytn-net-intelligence-api
 
-ADD . .
+ADD .gitmodules .gitmodules
 
 RUN git submodule update --init
 
@@ -20,6 +17,8 @@ WORKDIR /klaytn-net-intelligence-api
 RUN (cd lib/klaytnjs-monorepo/packages/devp2p && \
     npm install && \
     npm run build)
+
+ADD . .
 
 RUN npm install && \
     npm install -g pm2
