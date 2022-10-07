@@ -30,6 +30,16 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
           IMAGE_TAG: ${{ github.ref_name }}
+          BOOTNODES: ${{ secrets.BOOTNODES }}
+          BOOTNODE_PORT: ${{ secrets.BOOTNODE_PORT }}
+          RPC_HOST: ${{ secrets.RPC_HOST }}
+          WS_SERVER: ${{ secrets.WS_SERVER }}
+          WS_SECRET: ${{ secrets.WS_SECRET }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest . \
+            --build-arg BOOTNODES=$BOOTNODES \
+            --build-arg BOOTNODE_PORT=$BOOTNODE_PORT \
+            --build-arg RPC_HOST=$RPC_HOST \
+            --build-arg WS_SERVER=$WS_SERVER \
+            --build-arg WS_SECRET=$WS_SECRET
           docker push $ECR_REGISTRY/$ECR_REPOSITORY --all-tags
