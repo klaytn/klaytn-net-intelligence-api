@@ -6,7 +6,7 @@ WORKDIR /klaytn-net-intelligence-api
 
 ADD . .
 
-RUN git submodule update --init
+RUN git submodule update --init --remote
 
 WORKDIR /klaytn-net-intelligence-api/lib/klaytnjs-monorepo/packages/utils
 RUN npm install -g typescript@next && \
