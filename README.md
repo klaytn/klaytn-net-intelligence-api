@@ -11,7 +11,7 @@ Configure the app modifying [app.json](/app.json).
 ```json
 	{
 		"NODE_ENV"        : "production", // tell the client we're in production environment
-		"BOOTNODES"    	  : "52.194.200.217,52.78.22.32,18.136.251.28", // Klaytn cypress boot node IPs
+		"BOOTNODES"    	  : "", // Klaytn cypress boot node IPs
 		"BOOTNODE_PORT"   : "32323", // Klaytn boot node well-known port
 		"RPC_HOST"        : "http://localhost", // Klaytn JSON-RPC host
 		"RPC_PORT"        : "8545", // Klaytn JSON-RPC port
